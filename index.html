@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHINWARI JONGRA | Authentic Pashtun & Shinwari Cuisine - Peshawar</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#E4002B',
+                        brandRedDark: '#B80022',
+                        brandBlack: '#202020',
+                        brandDarkCharcoal: '#111111',
+                        brandLightGrey: '#F5F5F5',
+                        brandBorderGrey: '#E5E5E5'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #202020;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Red Accent Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #202020;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E4002B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B80022;
+        }
+
+        /* Red Pulse Effect */
+        .pulse-red {
+            box-shadow: 0 0 0 0 rgba(228, 0, 43, 0.4);
+            animation: pulseRedKey 2s infinite;
+        }
+        @keyframes pulseRedKey {
+            0% { box-shadow: 0 0 0 0 rgba(228, 0, 43, 0.6); }
+            70% { box-shadow: 0 0 0 14px rgba(228, 0, 43, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(228, 0, 43, 0); }
+        }
+
+        /* Food Card Zoom Animation */
+        .food-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .food-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.12);
+        }
+        .food-card:hover .food-card-img {
+            transform: scale(1.08);
+        }
+
+        /* Category Tab Active State */
+        .tab-btn.active {
+            background-color: #E4002B !important;
+            color: #FFFFFF !important;
+            border-color: #E4002B !important;
+        }
+
+        /* Red Slanted Ribbon */
+        .ribbon-red {
+            background: linear-gradient(135deg, #E4002B 0%, #B80022 100%);
+            clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-brandRed selection:text-white">
+
+    <!-- ANNOUNCEMENT STRIP -->
+    <div class="bg-brandDarkCharcoal text-white text-[11px] font-bold tracking-widest uppercase py-2 px-4 text-center flex items-center justify-center gap-3 border-b border-brandRed/30">
+        <span class="inline-flex items-center gap-1 text-brandRed">
+            <i data-lucide="flame" class="w-4 h-4 fill-brandRed"></i> 100% FRESH PAKISTAN MUTTON & CHARCOAL BBQ
+        </span>
+        <span class="hidden md:inline text-gray-500">•</span>
+        <span class="hidden md:inline text-gray-300">EXPRESS DELIVERY ACROSS PESHAWAR IN 30 MINS</span>
+        <span class="hidden md:inline text-gray-500">•</span>
+        <a href="#combos" class="bg-brandRed text-white px-2 py-0.5 rounded text-[10px] hover:bg-brandRedDark transition-colors">USE CODE: SHINWARI10</a>
+    </div>
+
+    <!-- STICKY TOP NAVIGATION BAR -->
+    <header id="main-header" class="sticky top-0 z-40 bg-white transition-all duration-300 border-b border-brandBorderGrey shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Mobile Menu Icon -->
+                <button onclick="toggleMobileNav()" class="lg:hidden p-2 text-brandBlack hover:text-brandRed transition-colors">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+
+                <!-- Brand Logo Emblem (KFC-Inspired Red & Black) -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-brandRed rounded-lg flex items-center justify-center text-white shadow-md group-hover:bg-brandRedDark transition-colors relative overflow-hidden">
+                        <i data-lucide="flame" class="w-7 h-7 fill-white"></i>
+                        <div class="absolute -bottom-1 -right-1 bg-brandBlack text-[8px] font-extrabold px-1 rounded text-white">1994</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-extrabold text-2xl sm:text-3xl tracking-tighter text-brandBlack group-hover:text-brandRed transition-colors uppercase leading-none">SHINWARI</span>
+                            <span class="font-black text-2xl sm:text-3xl tracking-tighter text-brandRed leading-none">JONGRA</span>
+                        </div>
+                        <span class="text-[9px] tracking-[0.25em] text-gray-600 font-bold uppercase mt-0.5">AUTHENTIC PASHTUN GASTRONOMY</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8 text-xs font-extrabold uppercase tracking-widest text-brandBlack">
+                    <a href="#hero" class="hover:text-brandRed transition-colors py-2 border-b-2 border-transparent hover:border-brandRed">Home</a>
+                    <a href="#menu" class="hover:text-brandRed transition-colors py-2 border-b-2 border-transparent hover:border-brandRed">Menu</a>
+                    <a href="#combos" class="hover:text-brandRed transition-colors py-2 border-b-2 border-transparent hover:border-brandRed flex items-center gap-1">
+                        Deals <span class="bg-brandRed text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-full">HOT</span>
+                    </a>
+                    <a href="#story" class="hover:text-brandRed transition-colors py-2 border-b-2 border-transparent hover:border-brandRed">Our Story</a>
+                    <a href="#gallery" class="hover:text-brandRed transition-colors py-2 border-b-2 border-transparent hover:border-brandRed">Gallery</a>
+                    <a href="#location" class="hover:text-brandRed transition-colors py-2 border-b-2 border-transparent hover:border-brandRed">Location</a>
+                </nav>
+
+                <!-- Action Controls (Cart, Wishlist, WhatsApp) -->
+                <div class="flex items-center space-x-3 sm:space-x-4">
+                    
+                    <!-- Wishlist Button -->
+                    <button onclick="toggleWishlistDrawer(true)" class="relative p-2.5 text-brandBlack hover:text-brandRed transition-colors hidden sm:block" title="Wishlist">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                        <span id="wishlist-badge" class="absolute top-1 right-1 bg-brandBlack text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <!-- Cart Drawer Trigger Button -->
+                    <button onclick="toggleCartDrawer(true)" class="relative bg-brandLightGrey hover:bg-brandRed hover:text-white text-brandBlack transition-all px-3.5 py-2.5 rounded-lg flex items-center gap-2 border border-brandBorderGrey font-bold text-xs">
+                        <i data-lucide="shopping-bag" class="w-5 h-5 text-brandRed group-hover:text-white"></i>
+                        <span id="cart-badge" class="bg-brandRed text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                        <span id="header-cart-total" class="hidden md:inline font-extrabold text-brandBlack">Rs. 0</span>
+                    </button>
+
+                    <!-- Primary Red Order Button -->
+                    <a href="#menu" class="hidden sm:inline-flex bg-brandRed hover:bg-brandRedDark text-white font-extrabold text-xs uppercase tracking-widest px-5 py-3 rounded-lg shadow-md transition-all transform active:scale-95 items-center gap-1.5">
+                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                        <span>ORDER ONLINE</span>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-nav" class="hidden lg:hidden border-t border-brandBorderGrey bg-white px-6 py-5 space-y-4 text-xs font-extrabold uppercase tracking-widest shadow-xl">
+            <a href="#hero" onclick="toggleMobileNav()" class="block text-brandRed">Home</a>
+            <a href="#menu" onclick="toggleMobileNav()" class="block text-brandBlack hover:text-brandRed">Full Shinwari Menu</a>
+            <a href="#combos" onclick="toggleMobileNav()" class="block text-brandBlack hover:text-brandRed">Deals & Combos</a>
+            <a href="#story" onclick="toggleMobileNav()" class="block text-brandBlack hover:text-brandRed">Our Heritage</a>
+            <a href="#gallery" onclick="toggleMobileNav()" class="block text-brandBlack hover:text-brandRed">Food Gallery</a>
+            <a href="#location" onclick="toggleMobileNav()" class="block text-brandBlack hover:text-brandRed">Peshawar Branch</a>
+            <a href="#menu" onclick="toggleMobileNav()" class="w-full bg-brandRed text-white text-center font-extrabold text-xs uppercase tracking-widest py-3.5 rounded-lg block">Order Online Now</a>
+        </div>
+    </header>
+
+    <!-- CINEMATIC HERO SECTION -->
+    <section id="hero" class="relative bg-brandDarkCharcoal text-white min-h-[90vh] flex items-center overflow-hidden">
+        <!-- Background Hero Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1920" 
+                 alt="Sizzling Shinwari Karahi Mutton" 
+                 class="w-full h-full object-cover object-center opacity-45 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-r from-brandDarkCharcoal via-brandDarkCharcoal/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brandDarkCharcoal via-transparent to-brandDarkCharcoal/50"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-brandRed text-white text-xs font-black uppercase tracking-widest rounded-md shadow-lg">
+                        <i data-lucide="flame" class="w-4 h-4 fill-white"></i> KHYBER'S MOST FAMOUS KARAHI & BBQ
+                    </div>
+
+                    <h1 class="font-black text-5xl sm:text-6xl lg:text-7xl tracking-tighter uppercase leading-[0.95] text-white">
+                        FEEL THE REAL <br>
+                        <span class="text-brandRed underline decoration-brandRed decoration-wavy decoration-2">TASTE OF SHINWARI</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg font-medium leading-relaxed max-w-xl">
+                        Fresh Mutton. Authentic Pashtun Flavors. Unforgettable Taste. Prepared with 100% natural organic sea salt and cooked live on charcoal.
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <a href="#menu" class="bg-brandRed hover:bg-brandRedDark text-white font-black text-sm uppercase tracking-widest px-8 py-4 rounded-xl shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-center">
+                            <span>EXPLORE MENU</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://wa.me/923009876543?text=Hello%20Shinwari%20Jongra,%20I%20want%20to%20order%20food." 
+                           target="_blank" 
+                           rel="noopener"
+                           class="bg-white hover:bg-gray-100 text-brandBlack font-black text-sm uppercase tracking-widest px-8 py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-center">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-emerald-600 fill-emerald-600"></i>
+                            <span>ORDER ON WHATSAPP</span>
+                        </a>
+                    </div>
+
+                    <!-- Live Stats Bar -->
+                    <div class="pt-8 border-t border-gray-800 grid grid-cols-3 gap-4 max-w-lg">
+                        <div>
+                            <span class="font-black text-2xl sm:text-3xl text-brandRed">100%</span>
+                            <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Fresh Meat</p>
+                        </div>
+                        <div>
+                            <span class="font-black text-2xl sm:text-3xl text-brandRed">30 MIN</span>
+                            <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Fast Delivery</p>
+                        </div>
+                        <div>
+                            <span class="font-black text-2xl sm:text-3xl text-brandRed">4.9 ★</span>
+                            <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Customer Rating</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Hero Feature Dish Card -->
+                <div class="lg:col-span-5 hidden lg:block">
+                    <div class="bg-white p-4 rounded-2xl shadow-2xl border-4 border-brandRed transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <div class="relative rounded-xl overflow-hidden aspect-4/3 mb-4">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800" alt="Shinwari Mutton Karahi" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-brandRed text-white text-xs font-black px-3 py-1 rounded-md uppercase tracking-wider shadow">HOT BESTSELLER</span>
+                        </div>
+                        <div class="p-3 text-brandBlack space-y-2">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-black text-xl uppercase tracking-tight">Shinwari Mutton Karahi</h3>
+                                <span class="font-black text-xl text-brandRed">Rs. 2,650</span>
+                            </div>
+                            <p class="text-xs text-gray-600 font-medium">1.0 KG prime mutton cooked in organic sea salt, tomatoes & fresh green chilies.</p>
+                            <button onclick="addToCart(1)" class="w-full bg-brandBlack hover:bg-brandRed text-white font-extrabold text-xs uppercase tracking-widest py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i data-lucide="plus-circle" class="w-4 h-4"></i> ADD TO QUICK ORDER
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIAL OFFERS & SHINWARI COMBOS (BRAND RED PROMO BANNER) -->
+    <section id="combos" class="bg-brandRed text-white py-16 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="bg-brandBlack text-white text-xs font-black px-3 py-1 rounded uppercase tracking-widest inline-block mb-2">EXCLUSIVE COMBOS</span>
+                    <h2 class="font-black text-4xl sm:text-5xl uppercase tracking-tight">SHINWARI SPECIAL DEALS</h2>
+                </div>
+                <!-- Countdown Timer -->
+                <div class="bg-brandBlack/40 backdrop-blur-md px-5 py-3 rounded-xl border border-white/20 flex items-center gap-3">
+                    <i data-lucide="clock" class="w-6 h-6 text-yellow-300"></i>
+                    <div>
+                        <span class="text-[10px] uppercase font-bold text-gray-200 block tracking-wider">DAILY OFFER ENDS IN:</span>
+                        <div id="deal-timer" class="font-black text-lg tracking-widest text-yellow-300">04 : 32 : 18</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combos Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Combo 1 -->
+                <div class="bg-white text-brandBlack rounded-2xl p-6 shadow-xl border-2 border-white flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="bg-brandRed text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-widest">FAMILY FEAST</span>
+                            <span class="font-black text-2xl text-brandRed">Rs. 4,990</span>
+                        </div>
+                        <h3 class="font-black text-xl uppercase mb-2">Shinwari Sultan Deal</h3>
+                        <p class="text-xs text-gray-600 font-medium leading-relaxed mb-4">1KG Mutton Karahi + 1 Plate Kabuli Pulao + 4 Roghani Naan + 1L Beverage + Mint Raita.</p>
+                    </div>
+                    <button onclick="addComboToCart('Shinwari Sultan Deal', 4990)" class="w-full bg-brandRed hover:bg-brandRedDark text-white font-extrabold text-xs uppercase tracking-widest py-3.5 rounded-xl shadow transition-colors flex items-center justify-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i> ORDER COMBO DEAL
+                    </button>
+                </div>
+
+                <!-- Combo 2 -->
+                <div class="bg-white text-brandBlack rounded-2xl p-6 shadow-xl border-2 border-white flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="bg-brandBlack text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-widest">HOT BBQ SPECIAL</span>
+                            <span class="font-black text-2xl text-brandRed">Rs. 3,850</span>
+                        </div>
+                        <h3 class="font-black text-xl uppercase mb-2">Khyber BBQ Feast</h3>
+                        <p class="text-xs text-gray-600 font-medium leading-relaxed mb-4">12 Mutton Tikka Skewers + 4 Seekh Kebabs + 1 Plate Kabuli Rice + Peshawari Kehwa Pot.</p>
+                    </div>
+                    <button onclick="addComboToCart('Khyber BBQ Feast', 3850)" class="w-full bg-brandRed hover:bg-brandRedDark text-white font-extrabold text-xs uppercase tracking-widest py-3.5 rounded-xl shadow transition-colors flex items-center justify-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i> ORDER COMBO DEAL
+                    </button>
+                </div>
+
+                <!-- Combo 3 -->
+                <div class="bg-white text-brandBlack rounded-2xl p-6 shadow-xl border-2 border-white flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="bg-brandRed text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-widest">SAVER COMBO</span>
+                            <span class="font-black text-2xl text-brandRed">Rs. 2,250</span>
+                        </div>
+                        <h3 class="font-black text-xl uppercase mb-2">Mutton Karahi & Pulao</h3>
+                        <p class="text-xs text-gray-600 font-medium leading-relaxed mb-4">Half KG Mutton Karahi + Single Kabuli Pulao + 2 Tandoori Naan + Fresh Salad.</p>
+                    </div>
+                    <button onclick="addComboToCart('Mutton Karahi & Pulao', 2250)" class="w-full bg-brandRed hover:bg-brandRedDark text-white font-extrabold text-xs uppercase tracking-widest py-3.5 rounded-xl shadow transition-colors flex items-center justify-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i> ORDER COMBO DEAL
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERACTIVE FOOD MENU SECTION -->
+    <section id="menu" class="py-20 bg-brandLightGrey text-brandBlack">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="bg-brandRed/10 text-brandRed text-xs font-black px-3 py-1 rounded uppercase tracking-widest">AUTHENTIC SELECTION</span>
+                <h2 class="font-black text-4xl sm:text-5xl uppercase tracking-tight">SHINWARI JONGRA MENU</h2>
+                <p class="text-xs font-semibold text-gray-600 uppercase tracking-wider">All meat is 100% fresh, cut daily & prepared on charcoal embers.</p>
+            </div>
+
+            <!-- Controls (Category Tabs & Search) -->
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-10">
+                
+                <!-- Category Tabs -->
+                <div class="flex flex-wrap items-center justify-center gap-2 bg-white p-2 rounded-xl border border-brandBorderGrey shadow-sm">
+                    <button onclick="filterCategory('All')" class="tab-btn active px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider border border-transparent transition-all" data-cat="All">All Items</button>
+                    <button onclick="filterCategory('Shinwari Specialties')" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider text-brandBlack hover:text-brandRed border border-transparent transition-all" data-cat="Shinwari Specialties">Shinwari Karahis</button>
+                    <button onclick="filterCategory('Traditional Rice')" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider text-brandBlack hover:text-brandRed border border-transparent transition-all" data-cat="Traditional Rice">Kabuli Rice</button>
+                    <button onclick="filterCategory('Fresh BBQ')" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider text-brandBlack hover:text-brandRed border border-transparent transition-all" data-cat="Fresh BBQ">Fresh BBQ</button>
+                    <button onclick="filterCategory('Breads & Sides')" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider text-brandBlack hover:text-brandRed border border-transparent transition-all" data-cat="Breads & Sides">Naan & Sides</button>
+                    <button onclick="filterCategory('Cold Beverages & Chutneys')" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider text-brandBlack hover:text-brandRed border border-transparent transition-all" data-cat="Cold Beverages & Chutneys">Beverages & Tea</button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative w-full lg:w-72">
+                    <input type="text" id="menu-search-input" onkeyup="renderMenuGrid()" placeholder="Search Karahi, Tikka, Pulao..." 
+                           class="w-full bg-white border border-brandBorderGrey rounded-xl py-3 pl-10 pr-4 text-xs font-semibold text-brandBlack placeholder-gray-400 focus:outline-none focus:border-brandRed shadow-sm">
+                    <i data-lucide="search" class="w-4 h-4 text-brandRed absolute left-3.5 top-3.5"></i>
+                </div>
+
+            </div>
+
+            <!-- Dishes Grid -->
+            <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="menu-empty-state" class="hidden text-center py-16 bg-white rounded-2xl border border-brandBorderGrey">
+                <i data-lucide="utensils" class="w-12 h-12 text-brandRed mx-auto mb-3"></i>
+                <h3 class="font-black text-2xl uppercase mb-1">No Dishes Found</h3>
+                <p class="text-xs text-gray-500 font-medium mb-6">Try searching for Karahi, BBQ, or Pulao.</p>
+                <button onclick="filterCategory('All')" class="bg-brandRed text-white text-xs font-black uppercase px-6 py-3 rounded-lg">View All Menu</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EDITORIAL OUR STORY SECTION -->
+    <section id="story" class="py-20 bg-white text-brandBlack border-t border-brandBorderGrey">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 text-brandRed font-black text-xs uppercase tracking-widest">
+                        <span class="w-8 h-1 bg-brandRed"></span> AUTHENTIC PASHTUN HERITAGE
+                    </div>
+                    <h2 class="font-black text-4xl sm:text-5xl uppercase tracking-tight leading-none">
+                        BUILT ON TRUST. <br>
+                        <span class="text-brandRed">COOKED WITH PASSION.</span>
+                    </h2>
+                    <p class="text-gray-700 text-sm font-medium leading-relaxed">
+                        The Shinwari cuisine of the Khyber region relies on simplicity and pure quality. At <strong>SHINWARI JONGRA</strong>, we cut zero corners. We pick grass-fed local sheep and cook exclusively with organic sea salt, whole black pepper, and ripe tomatoes over hardwood charcoal.
+                    </p>
+                    <p class="text-gray-700 text-sm font-medium leading-relaxed">
+                        Our Peshawar kitchen carries forward 30+ years of secret meat-handling craftsmanship, offering families private carpeted Hujra seating and royal hospitality.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-brandBorderGrey">
+                        <div class="bg-brandLightGrey p-4 rounded-xl border border-brandBorderGrey">
+                            <span class="font-black text-3xl text-brandRed">100%</span>
+                            <p class="text-xs font-extrabold uppercase text-brandBlack mt-1">Organic Local Mutton</p>
+                        </div>
+                        <div class="bg-brandLightGrey p-4 rounded-xl border border-brandBorderGrey">
+                            <span class="font-black text-3xl text-brandRed">30+ YRS</span>
+                            <p class="text-xs font-extrabold uppercase text-brandBlack mt-1">Culinary Heritage</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Visual Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" alt="Mutton Karahi" class="w-full h-64 object-cover rounded-2xl shadow-lg border-2 border-brandRed">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=600" alt="Charcoal BBQ" class="w-full h-64 object-cover rounded-2xl shadow-lg border-2 border-brandBlack mt-6">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOD GALLERY SECTION -->
+    <section id="gallery" class="py-20 bg-brandLightGrey text-brandBlack">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="bg-brandRed text-white text-xs font-black px-3 py-1 rounded uppercase tracking-widest">VISUAL FEAST</span>
+                <h2 class="font-black text-4xl sm:text-5xl uppercase tracking-tight">SHINWARI GALLERY</h2>
+                <p class="text-xs font-semibold text-gray-600 uppercase">Real photographs of our freshly sizzled Karahi, BBQ & Pulao.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-2xl border-2 border-brandBorderGrey group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" alt="Shinwari Mutton Karahi" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl border-2 border-brandBorderGrey group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&q=80&w=600" alt="Kabuli Pulao" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl border-2 border-brandBorderGrey group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=600" alt="Mutton BBQ Skewers" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl border-2 border-brandBorderGrey group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200')">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600" alt="Family Hujra Setup" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US (RED & BLACK ICON CARDS) -->
+    <section class="py-20 bg-white text-brandBlack border-t border-brandBorderGrey">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-14">
+                <span class="text-brandRed font-black text-xs uppercase tracking-widest">OUR GUARANTEE</span>
+                <h2 class="font-black text-4xl uppercase tracking-tight">WHY SHINWARI JONGRA</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                
+                <div class="bg-brandLightGrey p-6 rounded-2xl border border-brandBorderGrey text-center space-y-3 hover:border-brandRed transition-colors">
+                    <div class="w-12 h-12 bg-brandRed text-white rounded-xl flex items-center justify-center mx-auto shadow-md">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-black text-base uppercase">100% Organic Meat</h3>
+                    <p class="text-xs text-gray-600 font-medium">Grass-fed lamb and sheep slaughtered daily.</p>
+                </div>
+
+                <div class="bg-brandLightGrey p-6 rounded-2xl border border-brandBorderGrey text-center space-y-3 hover:border-brandRed transition-colors">
+                    <div class="w-12 h-12 bg-brandBlack text-white rounded-xl flex items-center justify-center mx-auto shadow-md">
+                        <i data-lucide="flame" class="w-6 h-6 text-brandRed"></i>
+                    </div>
+                    <h3 class="font-black text-base uppercase">Charcoal Ember Pit</h3>
+                    <p class="text-xs text-gray-600 font-medium">Authentic smokiness from natural hardwood coals.</p>
+                </div>
+
+                <div class="bg-brandLightGrey p-6 rounded-2xl border border-brandBorderGrey text-center space-y-3 hover:border-brandRed transition-colors">
+                    <div class="w-12 h-12 bg-brandRed text-white rounded-xl flex items-center justify-center mx-auto shadow-md">
+                        <i data-lucide="chef-hat" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-black text-base uppercase">Master Pashtun Chefs</h3>
+                    <p class="text-xs text-gray-600 font-medium">Over 3 decades of salt-cooking mastery.</p>
+                </div>
+
+                <div class="bg-brandLightGrey p-6 rounded-2xl border border-brandBorderGrey text-center space-y-3 hover:border-brandRed transition-colors">
+                    <div class="w-12 h-12 bg-brandBlack text-white rounded-xl flex items-center justify-center mx-auto shadow-md">
+                        <i data-lucide="users" class="w-6 h-6 text-brandRed"></i>
+                    </div>
+                    <h3 class="font-black text-base uppercase">Carpet Hujra Dining</h3>
+                    <p class="text-xs text-gray-600 font-medium">Private carpeted enclosures for families.</p>
+                </div>
+
+                <div class="bg-brandLightGrey p-6 rounded-2xl border border-brandBorderGrey text-center space-y-3 hover:border-brandRed transition-colors">
+                    <div class="w-12 h-12 bg-brandRed text-white rounded-xl flex items-center justify-center mx-auto shadow-md">
+                        <i data-lucide="truck" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-black text-base uppercase">30-Min Fast Delivery</h3>
+                    <p class="text-xs text-gray-600 font-medium">Hot thermal delivery across Peshawar.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT SECTION -->
+    <section id="location" class="py-20 bg-brandLightGrey text-brandBlack">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="bg-brandRed text-white text-xs font-black px-3 py-1 rounded uppercase tracking-widest">PESHAWAR SHOWROOM & RESTAURANT</span>
+                <h2 class="font-black text-4xl sm:text-5xl uppercase tracking-tight">LOCATION & CONTACT</h2>
+                <p class="text-xs font-semibold text-gray-600 uppercase">Visit us on University Road / Ring Road, Peshawar, KP.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Info Box -->
+                <div class="bg-white p-8 rounded-2xl border-2 border-brandRed shadow-xl space-y-6">
+                    <div>
+                        <span class="text-brandRed text-xs font-black uppercase tracking-widest">BRANCH DETAILS</span>
+                        <h3 class="font-black text-2xl uppercase text-brandBlack">SHINWARI JONGRA</h3>
+                    </div>
+
+                    <div class="space-y-4 text-xs font-medium text-gray-700">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-brandRed flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-brandBlack block uppercase font-bold">Address:</strong>
+                                Ring Road / University Road Interchange, Peshawar, KP, Pakistan.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="clock" class="w-5 h-5 text-brandRed flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-brandBlack block uppercase font-bold">Hours:</strong>
+                                12:00 PM – 01:00 AM (Open 7 Days A Week)
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-brandRed flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-brandBlack block uppercase font-bold">Phone / Orders:</strong>
+                                +92 91 555 7890 / +92 300 9876543
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 pt-2">
+                        <a href="https://maps.google.com/?q=University+Road+Peshawar+Pakistan" target="_blank" rel="noopener" class="w-full bg-brandRed hover:bg-brandRedDark text-white font-extrabold text-xs uppercase tracking-widest py-3.5 rounded-xl shadow flex items-center justify-center gap-2">
+                            <i data-lucide="navigation" class="w-4 h-4"></i> GET MAP DIRECTIONS
+                        </a>
+                        <a href="https://wa.me/923009876543?text=Hello%20Shinwari%20Jongra,%20I%20want%20to%20reserve%20a%20table." target="_blank" rel="noopener" class="w-full bg-brandBlack hover:bg-gray-800 text-white font-extrabold text-xs uppercase tracking-widest py-3.5 rounded-xl shadow flex items-center justify-center gap-2">
+                            <i data-lucide="calendar" class="w-4 h-4 text-brandRed"></i> RESERVE HUJRA TABLE
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed Frame -->
+                <div class="lg:col-span-2 bg-white rounded-2xl border border-brandBorderGrey shadow-xl overflow-hidden h-[420px]">
+                    <iframe title="Shinwari Jongra Peshawar Location Map" 
+                            class="w-full h-full border-0" 
+                            src="https://maps.google.com/maps?q=University%20Road%20Peshawar%20Pakistan&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DEEP BLACK FOOTER (KFC-INSPIRED BRANDING) -->
+    <footer class="bg-brandBlack text-white border-t-4 border-brandRed pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gray-800">
+                
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-brandRed rounded-lg flex items-center justify-center text-white">
+                            <i data-lucide="flame" class="w-6 h-6 fill-white"></i>
+                        </div>
+                        <span class="font-black text-2xl tracking-tighter uppercase text-white">SHINWARI <span class="text-brandRed">JONGRA</span></span>
+                    </div>
+                    <p class="text-gray-400 text-xs leading-relaxed max-w-sm">
+                        Authentic Pashtun and Shinwari cuisine prepared with organic sea salt, natural mutton fat, and hardwood charcoal embers in Peshawar, Pakistan.
+                    </p>
+                    <p class="text-xs font-bold text-brandRed uppercase tracking-wider">
+                        "FEEL THE REAL TASTE OF SHINWARI"
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-brandRed mb-4">Quick Navigation</h4>
+                    <ul class="space-y-2.5 text-xs font-semibold text-gray-300">
+                        <li><a href="#hero" class="hover:text-brandRed transition-colors">Home Page</a></li>
+                        <li><a href="#menu" class="hover:text-brandRed transition-colors">Full Shinwari Menu</a></li>
+                        <li><a href="#combos" class="hover:text-brandRed transition-colors">Special Combos</a></li>
+                        <li><a href="#story" class="hover:text-brandRed transition-colors">Our Pashtun Story</a></li>
+                        <li><a href="#location" class="hover:text-brandRed transition-colors">Peshawar Branch</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-brandRed mb-4">Top Dishes</h4>
+                    <ul class="space-y-2.5 text-xs font-semibold text-gray-300">
+                        <li><a href="#menu" class="hover:text-brandRed transition-colors">Shinwari Mutton Karahi</a></li>
+                        <li><a href="#menu" class="hover:text-brandRed transition-colors">Kabuli Pulao Platter</a></li>
+                        <li><a href="#menu" class="hover:text-brandRed transition-colors">Namkeen Mutton Tikka</a></li>
+                        <li><a href="#menu" class="hover:text-brandRed transition-colors">Slow Mutton Rosh</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-brandRed mb-4">Subscribe Offers</h4>
+                    <p class="text-xs text-gray-400 mb-3">Get exclusive Peshawar deal vouchers.</p>
+                    <form onsubmit="handleNewsletter(event)" class="space-y-2">
+                        <input type="email" required placeholder="Your email address" class="w-full bg-brandDarkCharcoal border border-gray-700 rounded-lg p-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-brandRed">
+                        <button type="submit" class="w-full bg-brandRed hover:bg-brandRedDark text-white text-xs font-black uppercase tracking-widest py-2.5 rounded-lg">Subscribe</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] font-semibold text-gray-500 gap-4">
+                <p>&copy; 2026 SHINWARI JONGRA. All rights reserved. Peshawar, Pakistan.</p>
+                <div class="flex space-x-6">
+                    <a href="#location" class="hover:text-brandRed">University Road, Peshawar</a>
+                    <a href="https://wa.me/923009876543" target="_blank" class="hover:text-brandRed">WhatsApp Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SLIDE-OUT SHOPPING CART DRAWER -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300">
+        <div id="cart-drawer" class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col translate-x-full transition-transform duration-300 border-l border-brandBorderGrey">
+            
+            <div class="p-5 bg-brandBlack text-white flex items-center justify-between border-b border-brandRed">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 text-brandRed"></i>
+                    <h3 class="font-black text-xl uppercase tracking-tight">Your Order Cart</h3>
+                    <span id="cart-drawer-count" class="bg-brandRed text-white text-xs font-black px-2 py-0.5 rounded">0</span>
+                </div>
+                <button onclick="toggleCartDrawer(false)" class="text-gray-400 hover:text-white p-1">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div id="cart-drawer-items" class="flex-grow overflow-y-auto p-5 space-y-4">
+                <!-- Cart Items Injected Here -->
+            </div>
+
+            <div class="p-5 bg-brandLightGrey border-t border-brandBorderGrey space-y-4">
+                
+                <!-- Delivery Options Selector -->
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-gray-600 mb-1">Order Mode (Peshawar):</label>
+                    <select id="order-mode-select" onchange="updateCartUI()" class="w-full bg-white border border-brandBorderGrey rounded-lg p-2 text-xs font-bold text-brandBlack focus:border-brandRed">
+                        <option value="Delivery">Express Home Delivery (Rs. 150)</option>
+                        <option value="Takeaway">Self Takeaway Pickup (Free)</option>
+                        <option value="Dine-In">Dine-In Hujra Reservation</option>
+                    </select>
+                </div>
+
+                <div class="space-y-1.5 text-xs font-semibold text-gray-700">
+                    <div class="flex justify-between">
+                        <span>Items Subtotal</span>
+                        <span id="cart-drawer-subtotal" class="font-extrabold text-brandBlack">Rs. 0</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Delivery Fee</span>
+                        <span id="cart-drawer-delivery" class="font-bold text-brandRed">Rs. 150</span>
+                    </div>
+                    <div class="flex justify-between text-base font-black text-brandBlack pt-2 border-t border-brandBorderGrey">
+                        <span>Total Payable</span>
+                        <span id="cart-drawer-total" class="text-brandRed font-black">Rs. 150</span>
+                    </div>
+                </div>
+
+                <button onclick="openCheckoutModal()" class="w-full bg-brandRed hover:bg-brandRedDark text-white font-black text-xs uppercase tracking-widest py-4 rounded-xl shadow-lg flex items-center justify-center gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4"></i> PROCEED TO CHECKOUT
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- WISHLIST DRAWER -->
+    <div id="wishlist-drawer-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300">
+        <div id="wishlist-drawer" class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col translate-x-full transition-transform duration-300 border-l border-brandBorderGrey">
+            <div class="p-5 bg-brandBlack text-white flex items-center justify-between border-b border-brandRed">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="heart" class="w-5 h-5 text-brandRed"></i>
+                    <h3 class="font-black text-xl uppercase tracking-tight">Your Wishlist</h3>
+                </div>
+                <button onclick="toggleWishlistDrawer(false)" class="text-gray-400 hover:text-white">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div id="wishlist-drawer-items" class="flex-grow overflow-y-auto p-5 space-y-4">
+                <!-- Wishlist items injected -->
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK VIEW DISH MODAL -->
+    <div id="quick-view-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-white max-w-3xl w-full rounded-2xl border-2 border-brandRed shadow-2xl overflow-hidden relative scale-95 transition-transform duration-300" id="quick-view-content">
+            <button onclick="closeQuickViewModal()" class="absolute top-3 right-3 z-10 p-2 text-gray-500 hover:text-brandBlack bg-brandLightGrey rounded-full">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="quick-view-body" class="grid grid-cols-1 md:grid-cols-2">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FULL CHECKOUT MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white max-w-lg w-full rounded-2xl border-2 border-brandRed p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-gray-400 hover:text-brandBlack">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="mb-6 border-b border-brandBorderGrey pb-3">
+                <span class="text-brandRed text-[10px] font-black uppercase tracking-widest block">EXPRESS CHECKOUT</span>
+                <h3 class="font-black text-3xl uppercase text-brandBlack">COMPLETE YOUR ORDER</h3>
+            </div>
+
+            <form onsubmit="processOrderInvoice(event)" class="space-y-4 text-xs font-semibold">
+                <div>
+                    <label class="block font-black text-brandBlack uppercase mb-1">Customer Full Name *</label>
+                    <input type="text" required id="cust-name" placeholder="e.g. Khan Sahib" class="w-full bg-brandLightGrey border border-brandBorderGrey rounded-lg p-3 text-brandBlack outline-none focus:border-brandRed">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-black text-brandBlack uppercase mb-1">Phone / WhatsApp *</label>
+                        <input type="tel" required id="cust-phone" placeholder="0300 0000000" class="w-full bg-brandLightGrey border border-brandBorderGrey rounded-lg p-3 text-brandBlack outline-none focus:border-brandRed">
+                    </div>
+                    <div>
+                        <label class="block font-black text-brandBlack uppercase mb-1">Peshawar Sector</label>
+                        <select id="cust-sector" class="w-full bg-brandLightGrey border border-brandBorderGrey rounded-lg p-3 text-brandBlack outline-none focus:border-brandRed">
+                            <option>University Road</option>
+                            <option>Hayatabad Phase 1-7</option>
+                            <option>Town / Saddar</option>
+                            <option>Ring Road Corridor</option>
+                            <option>Gulberg / Cantonment</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-black text-brandBlack uppercase mb-1">Delivery Address *</label>
+                    <input type="text" required id="cust-address" placeholder="House #, Street #, Sector" class="w-full bg-brandLightGrey border border-brandBorderGrey rounded-lg p-3 text-brandBlack outline-none focus:border-brandRed">
+                </div>
+
+                <div>
+                    <label class="block font-black text-brandBlack uppercase mb-1">Payment Method</label>
+                    <select id="cust-payment" class="w-full bg-brandLightGrey border border-brandBorderGrey rounded-lg p-3 text-brandBlack outline-none focus:border-brandRed">
+                        <option>Cash On Delivery (COD)</option>
+                        <option>JazzCash / EasyPaisa Transfer</option>
+                        <option>Card Machine On Delivery</option>
+                    </select>
+                </div>
+
+                <div class="bg-brandLightGrey p-3 rounded-lg border border-brandBorderGrey text-xs font-bold space-y-1">
+                    <div class="flex justify-between"><span>Order Items:</span> <span id="checkout-items-count" class="text-brandRed">0</span></div>
+                    <div class="flex justify-between"><span>Final Payable:</span> <span id="checkout-final-amount" class="text-brandRed font-black">Rs. 0</span></div>
+                </div>
+
+                <button type="submit" class="w-full bg-brandRed hover:bg-brandRedDark text-white font-black text-xs uppercase tracking-widest py-4 rounded-xl shadow-xl mt-4 flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5 fill-white"></i> CONFIRM & GENERATE WHATSAPP INVOICE
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="image-lightbox" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4 cursor-pointer" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Full view" class="max-w-full max-h-[90vh] object-contain rounded-2xl border-4 border-brandRed">
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/923009876543?text=Salam%20Shinwari%20Jongra,%20I%20want%20to%20order." 
+       target="_blank" 
+       rel="noopener"
+       class="fixed bottom-6 right-6 z-40 bg-brandRed hover:bg-brandRedDark text-white p-4 rounded-full shadow-2xl flex items-center justify-center group transition-all duration-300 hover:scale-110 border-2 border-white pulse-red">
+        <i data-lucide="message-circle" class="w-7 h-7 fill-white"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap text-xs font-extrabold px-0 group-hover:px-2 uppercase tracking-wider">WHATSAPP ORDER</span>
+    </a>
+
+    <!-- TOAST NOTIFICATIONS CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+    <!-- JAVASCRIPT LOGIC ENGINE -->
+    <script>
+        // MENU DATASET
+        const menuDishes = [
+            {
+                id: 1,
+                name: "Shinwari Mutton Karahi (Full KG)",
+                category: "Shinwari Specialties",
+                price: 2650,
+                rating: 5.0,
+                portion: "1.0 KG Fresh Meat",
+                cookingTime: "35 Mins Charcoal",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800",
+                description: "Authentic Khyber copper karahi mutton slow simmered in organic sea salt, tomatoes & fresh green chilies."
+            },
+            {
+                id: 2,
+                name: "Namkeen Mutton Karahi (Half KG)",
+                category: "Shinwari Specialties",
+                price: 1400,
+                rating: 4.9,
+                portion: "0.5 KG Fresh Meat",
+                cookingTime: "30 Mins Charcoal",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800",
+                description: "Original Khyber salt-cooked mutton slow-cooked in pure lamb fat without artificial spices."
+            },
+            {
+                id: 3,
+                name: "Special Shinwari Kabuli Pulao",
+                category: "Traditional Rice",
+                price: 950,
+                rating: 4.9,
+                portion: "Serves 1-2 Persons",
+                cookingTime: "Ready to Serve",
+                image: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&q=80&w=800",
+                description: "Long-grain basmati rice topped with tender mutton shank joint, sweet carrots, and raisins."
+            },
+            {
+                id: 4,
+                name: "Shinwari Mutton Tikka Skewers",
+                category: "Fresh BBQ",
+                price: 1350,
+                rating: 5.0,
+                portion: "12 Charcoal Skewers",
+                cookingTime: "20 Mins BBQ Pit",
+                image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
+                description: "Tender lamb fat and meat cubes sprinkled with sea salt and grilled over natural coals."
+            },
+            {
+                id: 5,
+                name: "Namkeen Mutton Rosh (Stem Joint)",
+                category: "Shinwari Specialties",
+                price: 1550,
+                rating: 4.8,
+                portion: "1 Large Mutton Joint",
+                cookingTime: "4 Hours Dum Cook",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800",
+                description: "Pashtun bone broth stew slow cooked with garlic cloves, whole potatoes, and lamb joints."
+            },
+            {
+                id: 6,
+                name: "Shinwari BBQ Mixed Platter",
+                category: "Fresh BBQ",
+                price: 3200,
+                rating: 5.0,
+                portion: "Serves 3-4 Persons",
+                cookingTime: "25 Mins BBQ Pit",
+                image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
+                description: "Includes Mutton Tikka, Lamb Chops, Seekh Kebabs, Naan, and fresh mint chutney."
+            },
+            {
+                id: 7,
+                name: "Fresh Tandoori Roghani Naan",
+                category: "Breads & Sides",
+                price: 80,
+                rating: 4.7,
+                portion: "1 Large Naan",
+                cookingTime: "Fresh from Tandoor",
+                image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=800",
+                description: "Clay oven baked flatbread brushed with butter and sesame seeds."
+            },
+            {
+                id: 8,
+                name: "Special Peshawari Green Kehwa",
+                category: "Cold Beverages & Chutneys",
+                price: 150,
+                rating: 4.9,
+                portion: "1 Teapot (4 Cups)",
+                cookingTime: "Brewed Fresh",
+                image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800",
+                description: "Traditional green tea brewed with cardamom pods, served with saffron sugar."
+            }
+        ];
+
+        // APP STATE MANAGEMENT
+        let cart = [];
+        let wishlist = [];
+        let activeCategory = 'All';
+
+        window.onload = () => {
+            renderMenuGrid();
+            startCountdownTimer();
+            lucide.createIcons();
+        };
+
+        function toggleMobileNav() {
+            document.getElementById('mobile-nav').classList.toggle('hidden');
+        }
+
+        // RENDER MENU GRID WITH CATEGORY AND SEARCH FILTER
+        function renderMenuGrid() {
+            const container = document.getElementById('menu-grid');
+            const emptyState = document.getElementById('menu-empty-state');
+            const searchVal = document.getElementById('menu-search-input').value.toLowerCase();
+
+            let filtered = menuDishes.filter(d => {
+                const matchCat = (activeCategory === 'All') || (d.category === activeCategory);
+                const matchSearch = d.name.toLowerCase().includes(searchVal) || 
+                                    d.description.toLowerCase().includes(searchVal);
+                return matchCat && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            container.innerHTML = filtered.map(dish => {
+                const isWish = wishlist.includes(dish.id);
+                return `
+                <div class="food-card bg-white rounded-2xl border border-brandBorderGrey overflow-hidden flex flex-col justify-between shadow-sm relative">
+                    
+                    <div class="relative aspect-4/3 overflow-hidden cursor-pointer" onclick="openQuickView(${dish.id})">
+                        <img src="${dish.image}" alt="${dish.name}" class="food-card-img w-full h-full object-cover transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-brandBlack text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-wider">${dish.portion}</span>
+                        <button onclick="event.stopPropagation(); toggleWishlist(${dish.id})" class="absolute top-3 right-3 p-2 rounded-full bg-white/90 text-brandBlack hover:text-brandRed transition-colors shadow">
+                            <i data-lucide="heart" class="w-4 h-4 ${isWish ? 'fill-brandRed text-brandRed' : ''}"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] font-extrabold uppercase text-gray-500 mb-1">
+                                <span class="text-brandRed">${dish.category}</span>
+                                <span class="flex items-center gap-1 text-yellow-500">★ ${dish.rating}</span>
+                            </div>
+                            <h3 onclick="openQuickView(${dish.id})" class="font-black text-base text-brandBlack uppercase hover:text-brandRed transition-colors cursor-pointer leading-snug">${dish.name}</h3>
+                            <p class="text-xs text-gray-600 font-medium line-clamp-2 mt-1">${dish.description}</p>
+                        </div>
+
+                        <div class="pt-3 border-t border-brandBorderGrey flex items-center justify-between">
+                            <div>
+                                <span class="text-[9px] text-gray-400 font-bold uppercase block">PRICE</span>
+                                <span class="font-black text-lg text-brandRed">Rs. ${dish.price.toLocaleString()}</span>
+                            </div>
+                            <button onclick="addToCart(${dish.id})" class="bg-brandRed hover:bg-brandRedDark text-white text-xs font-black px-3.5 py-2.5 rounded-lg uppercase tracking-wider flex items-center gap-1.5 shadow transition-colors">
+                                <i data-lucide="plus" class="w-4 h-4"></i> ADD
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            `}).join('');
+
+            lucide.createIcons();
+        }
+
+        function filterCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.dataset.cat === cat) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            renderMenuGrid();
+        }
+
+        // CART LOGIC
+        function addToCart(dishId) {
+            const dish = menuDishes.find(d => d.id === dishId);
+            const existing = cart.find(item => item.id === dishId);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...dish, quantity: 1 });
+            }
+
+            updateCartUI();
+            showToast(`Added "${dish.name}" to order!`);
+        }
+
+        function addComboToCart(comboName, price) {
+            const existing = cart.find(item => item.name === comboName);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    id: Date.now(),
+                    name: comboName,
+                    price: price,
+                    quantity: 1,
+                    image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=400"
+                });
+            }
+            updateCartUI();
+            showToast(`Added "${comboName}" to order!`);
+        }
+
+        function updateQuantity(dishId, change) {
+            const item = cart.find(i => i.id === dishId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== dishId);
+                }
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(dishId) {
+            cart = cart.filter(i => i.id !== dishId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const count = cart.reduce((sum, i) => sum + i.quantity, 0);
+            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+            
+            const mode = document.getElementById('order-mode-select')?.value || 'Delivery';
+            const deliveryFee = (mode === 'Delivery') ? 150 : 0;
+            const grandTotal = subtotal + deliveryFee;
+
+            document.getElementById('cart-badge').textContent = count;
+            document.getElementById('cart-drawer-count').textContent = count;
+            document.getElementById('header-cart-total').textContent = `Rs. ${subtotal.toLocaleString()}`;
+            document.getElementById('cart-drawer-subtotal').textContent = `Rs. ${subtotal.toLocaleString()}`;
+            document.getElementById('cart-drawer-delivery').textContent = (deliveryFee > 0) ? `Rs. ${deliveryFee}` : 'FREE';
+            document.getElementById('cart-drawer-total').textContent = `Rs. ${grandTotal.toLocaleString()}`;
+
+            const container = document.getElementById('cart-drawer-items');
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16">
+                        <i data-lucide="shopping-bag" class="w-12 h-12 text-gray-300 mx-auto mb-3"></i>
+                        <p class="text-xs text-gray-500 font-bold uppercase">Your order cart is empty.</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="flex items-center gap-3 p-3 bg-brandLightGrey rounded-xl border border-brandBorderGrey">
+                        <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-cover rounded-lg">
+                        <div class="flex-grow min-w-0">
+                            <h4 class="text-xs font-black text-brandBlack uppercase truncate">${item.name}</h4>
+                            <p class="text-xs text-brandRed font-black">Rs. ${item.price.toLocaleString()}</p>
+                            <div class="flex items-center gap-2 mt-1">
+                                <button onclick="updateQuantity(${item.id}, -1)" class="w-5 h-5 bg-white border border-brandBorderGrey rounded text-xs font-bold">-</button>
+                                <span class="text-xs font-black text-brandBlack">${item.quantity}</span>
+                                <button onclick="updateQuantity(${item.id}, 1)" class="w-5 h-5 bg-white border border-brandBorderGrey rounded text-xs font-bold">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-gray-400 hover:text-brandRed p-1">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            lucide.createIcons();
+        }
+
+        function toggleCartDrawer(open) {
+            const overlay = document.getElementById('cart-drawer-overlay');
+            const drawer = document.getElementById('cart-drawer');
+            if (open) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                    drawer.classList.remove('translate-x-full');
+                }, 10);
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        // WISHLIST LOGIC
+        function toggleWishlist(id) {
+            if (wishlist.includes(id)) {
+                wishlist = wishlist.filter(i => i !== id);
+                showToast("Removed from wishlist");
+            } else {
+                wishlist.push(id);
+                showToast("Added to wishlist!");
+            }
+            document.getElementById('wishlist-badge').textContent = wishlist.length;
+            renderMenuGrid();
+            renderWishlistItems();
+        }
+
+        function renderWishlistItems() {
+            const container = document.getElementById('wishlist-drawer-items');
+            if (wishlist.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-400 text-center py-10 font-bold uppercase">No items in wishlist.</p>`;
+                return;
+            }
+            const items = menuDishes.filter(d => wishlist.includes(d.id));
+            container.innerHTML = items.map(d => `
+                <div class="flex items-center justify-between p-3 bg-brandLightGrey rounded-xl border border-brandBorderGrey">
+                    <div class="flex items-center gap-3">
+                        <img src="${d.image}" class="w-12 h-12 object-cover rounded-lg">
+                        <div>
+                            <h4 class="text-xs font-black text-brandBlack uppercase">${d.name}</h4>
+                            <span class="text-xs text-brandRed font-black">Rs. ${d.price.toLocaleString()}</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart(${d.id}); toggleWishlist(${d.id})" class="bg-brandRed text-white text-[10px] font-black px-2.5 py-1.5 rounded uppercase">Add Order</button>
+                </div>
+            `).join('');
+        }
+
+        function toggleWishlistDrawer(open) {
+            const overlay = document.getElementById('wishlist-drawer-overlay');
+            const drawer = document.getElementById('wishlist-drawer');
+            if (open) {
+                renderWishlistItems();
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                    drawer.classList.remove('translate-x-full');
+                }, 10);
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        // CHECKOUT & WHATSAPP GENERATOR
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showToast("Please add items to your cart first.");
+                return;
+            }
+            toggleCartDrawer(false);
+
+            const count = cart.reduce((sum, i) => sum + i.quantity, 0);
+            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+            const mode = document.getElementById('order-mode-select').value;
+            const deliveryFee = (mode === 'Delivery') ? 150 : 0;
+            const total = subtotal + deliveryFee;
+
+            document.getElementById('checkout-items-count').textContent = count;
+            document.getElementById('checkout-final-amount').textContent = `Rs. ${total.toLocaleString()}`;
+
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function processOrderInvoice(e) {
+            e.preventDefault();
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const sector = document.getElementById('cust-sector').value;
+            const address = document.getElementById('cust-address').value;
+            const payment = document.getElementById('cust-payment').value;
+            const mode = document.getElementById('order-mode-select').value;
+
+            let invoiceText = `*SHINWARI JONGRA PESHAWAR ORDER INVOICE*\n`;
+            invoiceText += `----------------------------------------\n`;
+            invoiceText += `*Customer:* ${name}\n`;
+            invoiceText += `*Phone:* ${phone}\n`;
+            invoiceText += `*Order Mode:* ${mode}\n`;
+            invoiceText += `*Address:* ${address}, ${sector}\n`;
+            invoiceText += `*Payment Method:* ${payment}\n\n`;
+            invoiceText += `*ORDER ITEMS:*\n`;
+
+            cart.forEach(item => {
+                invoiceText += `• ${item.name} x${item.quantity} = Rs. ${(item.price * item.quantity).toLocaleString()}\n`;
+            });
+
+            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+            const deliveryFee = (mode === 'Delivery') ? 150 : 0;
+            const total = subtotal + deliveryFee;
+
+            invoiceText += `\n*Subtotal:* Rs. ${subtotal.toLocaleString()}`;
+            invoiceText += `\n*Delivery Fee:* Rs. ${deliveryFee}`;
+            invoiceText += `\n*GRAND TOTAL:* Rs. ${total.toLocaleString()}\n`;
+            invoiceText += `----------------------------------------\n`;
+            invoiceText += `Please confirm my Peshawar order!`;
+
+            closeCheckoutModal();
+            cart = [];
+            updateCartUI();
+
+            const url = `https://wa.me/923009876543?text=${encodeURIComponent(invoiceText)}`;
+            window.open(url, '_blank');
+        }
+
+        // QUICK VIEW MODAL
+        function openQuickView(dishId) {
+            const dish = menuDishes.find(d => d.id === dishId);
+            if (!dish) return;
+
+            const modal = document.getElementById('quick-view-modal');
+            const content = document.getElementById('quick-view-content');
+            const body = document.getElementById('quick-view-body');
+
+            body.innerHTML = `
+                <div class="aspect-square bg-gray-100">
+                    <img src="${dish.image}" alt="${dish.name}" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 flex flex-col justify-between space-y-4">
+                    <div>
+                        <span class="text-brandRed text-[10px] font-black uppercase tracking-widest">${dish.category} • ${dish.portion}</span>
+                        <h3 class="font-black text-2xl uppercase text-brandBlack mt-1 mb-2">${dish.name}</h3>
+                        <p class="text-xs text-gray-600 font-medium leading-relaxed mb-4">${dish.description}</p>
+                        <div class="bg-brandLightGrey p-3 rounded-lg border border-brandBorderGrey space-y-1 text-xs text-gray-700 font-semibold">
+                            <p><strong>Prep Time:</strong> ${dish.cookingTime}</p>
+                            <p><strong>Salt & Spice:</strong> Traditional Organic Salt Cooked</p>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-brandBorderGrey flex items-center justify-between">
+                        <span class="font-black text-2xl text-brandRed">Rs. ${dish.price.toLocaleString()}</span>
+                        <button onclick="addToCart(${dish.id}); closeQuickViewModal()" class="bg-brandRed hover:bg-brandRedDark text-white font-black text-xs uppercase px-5 py-3 rounded-lg shadow">
+                            ADD TO ORDER
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+            }, 10);
+            lucide.createIcons();
+        }
+
+        function closeQuickViewModal() {
+            const modal = document.getElementById('quick-view-modal');
+            const content = document.getElementById('quick-view-content');
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        // COUNTDOWN TIMER FOR DEALS
+        function startCountdownTimer() {
+            let duration = 4 * 3600 + 32 * 60 + 18;
+            setInterval(() => {
+                duration--;
+                if (duration <= 0) duration = 8 * 3600;
+                const hrs = String(Math.floor(duration / 3600)).padStart(2, '0');
+                const mins = String(Math.floor((duration % 3600) / 60)).padStart(2, '0');
+                const secs = String(duration % 60).padStart(2, '0');
+                const el = document.getElementById('deal-timer');
+                if (el) el.textContent = `${hrs} : ${mins} : ${secs}`;
+            }, 1000);
+        }
+
+        // LIGHTBOX
+        function openLightbox(url) {
+            document.getElementById('lightbox-img').src = url;
+            document.getElementById('image-lightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('image-lightbox').classList.add('hidden');
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            showToast("Subscribed to Shinwari Jongra offers!");
+            e.target.reset();
+        }
+
+        // TOAST NOTIFICATION SYSTEM
+        function showToast(msg) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = "bg-brandBlack text-white px-4 py-3 rounded-lg border border-brandRed text-xs font-black uppercase tracking-wider flex items-center gap-3 shadow-2xl transition-all duration-300 pointer-events-auto";
+            toast.innerHTML = `
+                <i data-lucide="check-circle" class="w-4 h-4 text-brandRed"></i>
+                <span>${msg}</span>
+            `;
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
